@@ -5,11 +5,12 @@
 
 #define BLOCK_SIZE 32
 
-__global__ void multMat(float *A, float *B, float *C, int wA, int wB)
-{
+__global__ void multMat(float *A, float *B, float *C, int wA, int wB) {
 
-    int bx = blockIdx.x;  int by = blockIdx.y;
-    int tx = threadIdx.x; int ty = threadIdx.y;
+    int bx = blockIdx.x;
+    int by = blockIdx.y;
+    int tx = threadIdx.x;
+    int ty = threadIdx.y;
 
     // Index of the first sub-matrix of A processed by the block
     int aBegin = wA * BLOCK_SIZE * by;
@@ -32,10 +33,7 @@ __global__ void multMat(float *A, float *B, float *C, int wA, int wB)
 
     // Loop over all the sub-matrices of A and B
     // required to compute the block sub-matrix
-    for (int a = aBegin, b = bBegin;
-         a <= aEnd;
-         a += aStep, b += bStep)
-    {
+    for (int a = aBegin, b = bBegin; a <= aEnd; a += aStep, b += bStep) {
 
         // Declaration of the shared memory array As used to
         // store the sub-matrix of A
@@ -57,8 +55,7 @@ __global__ void multMat(float *A, float *B, float *C, int wA, int wB)
         // Multiply the two matrices together;
         // each thread computes one element
         // of the block sub-matrix
-        for (int k = 0; k < BLOCK_SIZE; ++k)
-        {
+        for (int k = 0; k < BLOCK_SIZE; ++k) {
             Csub += As[ty][k] * Bs[k][tx];
         }
 
@@ -76,8 +73,7 @@ __global__ void multMat(float *A, float *B, float *C, int wA, int wB)
 
 
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 
     const int size = 32;
     const int nIter = 100000;
@@ -85,7 +81,10 @@ int main(int argc, char **argv)
     float *h_A = (float *)malloc(sizeof(float) * size * size);
     float *h_B = (float *)malloc(sizeof(float) * size * size);
     float *h_C = (float *)malloc(sizeof(float) * size * size);
-    for (int i = 0; i < size * size; ++i) { h_A[i] =  1.0f; h_B[i] =  1.0f; }
+    for (int i = 0; i < size * size; ++i) {
+        h_A[i] =  1.0f;
+        h_B[i] =  1.0f;
+    }
 
     float *d_A, *d_B, *d_C;
     cudaMalloc((void **) &d_A, sizeof(float) * size * size);
@@ -112,7 +111,7 @@ int main(int argc, char **argv)
     cudaEventElapsedTime(&msecTotal, start, stop);
 
     // Compute and print the performance
-    float msecPerMatrixMul = msecTotal / nIter;    
+    float msecPerMatrixMul = msecTotal / nIter;
     printf("Time= %2.5f\n",msecPerMatrixMul);
 
     // Copy result from device to host
@@ -122,8 +121,7 @@ int main(int argc, char **argv)
     //     |<x, y>_cpu - <x,y>_gpu|/<|x|, |y|>  < eps
     double eps = 1.e-6 ; // machine zero
 
-    for (int i = 0; i < (int)(size * size); i++)
-    {
+    for (int i = 0; i < (int)(size * size); i++) {
         double abs_err = fabs(h_C[i] - (size * 1.0f));
         double abs_val = fabs(h_C[i]);
         double rel_err = abs_err/abs_val/size ;

@@ -8,10 +8,10 @@
 #include <math.h>
 
 int main () {
+std::cout << "ok";
     thrust::host_vector<double> host(5);
     thrust::host_vector<double> mean(5);
     thrust::fill(thrust::host, mean.begin(), mean.end(), 500);
-    std::cout << "ok";
     // fill host vector with numbers
     for (int i=0; i<host.size(); i++) {
         host.push_back(i);
