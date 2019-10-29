@@ -112,7 +112,7 @@ int main(int argc, char **argv) {
 
     // Compute and print the performance
     float msecPerMatrixMul = msecTotal / nIter;
-    printf("Time= %2.5f\n",msecPerMatrixMul);
+    printf("Time= %2.5f\n", msecPerMatrixMul);
 
     // Copy result from device to host
     cudaMemcpy(h_C, d_C, sizeof(float) * size * size, cudaMemcpyDeviceToHost);
