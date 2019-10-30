@@ -16,9 +16,7 @@ __global__ void calc_dists(double *xpos, double *ypos, double *dists, int N) {
     printf("%f ", dists[i*N+j]);
 }
 
-__global__ void shuff_vecs(double *) {
-    
-}
+__global__ void shuff_vecs(double *)
 
 int main() {
     int N;
@@ -33,11 +31,11 @@ int main() {
         xpos[i] = x;
         ypos[i] = y;
     }
-    //for (int i=0; i<N; i++) {
-    //    std::cout << xpos[i] << " ";
-    //    std::cout << ypos[i] << " ";
-    //}
-    //std::cout << std::endl;
+    for (int i=0; i<N; i++) {
+        std::cout << xpos[i] << " ";
+        std::cout << ypos[i] << " ";
+    }
+    std::cout << std::endl;
     //for (int i=0; i<N*N; i++) {
     //    std::cout << dists[i] << " ";
     //}
@@ -53,12 +51,9 @@ int main() {
                                   thrust::raw_pointer_cast(ypos_d.data()),
                                   thrust::raw_pointer_cast(dists_d.data()),
                                   N);
-    shuff_vecs<<<SIZE, 1024>>>(thrust::raw_pointer_cast(xpos_d.data()),
-                               thrust::raw_pointer_cast(ypos_d.data()),
-                               //thrust::raw_pointer_cast(dists_d.data()),
-                               N);
-    //dim3 threads(1024);
-    //dim3 grid(SIZE);
+    dim3 threads(1024);
+    dim3 grid(SIZE);
+    
 
 }
 
