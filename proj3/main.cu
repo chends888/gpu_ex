@@ -92,9 +92,16 @@ int main() {
                                     N);
 
     thrust::device_vector<double>::iterator min = thrust::min_element(path_dists_d.begin(), path_dists_d.end());
-    int position = min - path_dists_d.begin();
+    //int min = thrust::min_element(path_dists_d.begin(), path_dists_d.end()) - path_dists_d.begin();
+    int min_idx = min - path_dists_d.begin();
     double min_val = *min;
-    printf("%f", min_val);
+    printf("%d\n", min_idx);
+    printf("%f\n", min_val);
+
+    for (int i=min_idx*N; i<(min_idx+1)*N; i++) {
+        printf("%d ", all_paths_d[i]);
+    }
+    printf("\n");
 
     //dim3 threads(1024);
     //dim3 grid(SIZE);
