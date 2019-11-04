@@ -7,7 +7,7 @@
 #include "curand.h"
 #include "curand_kernel.h"
 
-#define ITER 3000
+#define ITER 2048
 
 __global__ void calc_dists(double *xpos, double *ypos, double *dists, int N) {
     int i = blockIdx.y * blockDim.y + threadIdx.y;
@@ -23,22 +23,22 @@ __global__ void calc_path_dists(int *all_paths, double* path_dists, double *dist
     for (int i=0; i<N; i++) {
         all_paths[(t_i * N) + i] = i;
     }
-    for (int i=0; i<N; i++) {
-        printf("%d, ", all_paths[t_i * N + i]);
+    for (int i=t_i*N; i<(t_i+1)*N; i++) {
+        //printf("%d, ", all_paths[i]);
     }
-    printf("\n");
+    //printf("\n");
 
 
     for (int i=1; i<N; i++) {
-        int tmp = all_paths[N * t_i + i];
-        int rand_i = (int) ((N * t_i - i) * curand_uniform(&st) + i);
-        all_paths[N * t_i + i] = all_paths[rand_i];
+        int tmp = all_paths[i];
+        int rand_i = (int) ((N * (t_i + 1) - i) * curand_uniform(&st) + i);
+        all_paths[i] = all_paths[rand_i];
         all_paths[rand_i] = tmp;
     }
 
     double path_dist;
-    for (int i=0; i<N; i++) {
-        path_dist += dists[all_paths[t_i * N + i] * N + all_paths[t_i * N + i + 1]];
+    for (int i=t_i*N; i<(t_i+1)*N; i++) {
+        path_dist += dists[all_paths[i] * N + all_paths[i + 1]];
     }
     path_dists[t_i] = path_dist;
     path_dists[t_i] += dists[all_paths[N - 1]];
