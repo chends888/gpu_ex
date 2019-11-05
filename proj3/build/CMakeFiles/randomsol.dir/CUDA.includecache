@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ec2-user/chen/gpu_ex/proj3/main.cu
+iostream
+-
+thrust/device_vector.h
+-
+thrust/host_vector.h
+-
+stdio.h
+-
+math.h
+-
+curand.h
+/home/ec2-user/chen/gpu_ex/proj3/curand.h
+curand_kernel.h
+/home/ec2-user/chen/gpu_ex/proj3/curand_kernel.h
+
