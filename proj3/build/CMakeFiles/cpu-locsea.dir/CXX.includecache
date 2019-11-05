@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ec2-user/chen/gpu_ex/proj3/tsp-cpu-locsea.cpp
+iostream
+-
+math.h
+-
+vector
+-
+omp.h
+-
+chrono
+-
+limits
+-
+iomanip
+-
+fstream
+-
+string
+-
+algorithm
+-
+random
+-
+

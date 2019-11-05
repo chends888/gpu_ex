@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/cpu-locsea.dir/tsp-cpu-locsea.cpp.o  -o cpu-locsea /usr/lib/gcc/x86_64-redhat-linux/7/libgomp.so -lpthread 

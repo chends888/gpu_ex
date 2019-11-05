@@ -111,44 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named randomsol
+# Target rules for targets named cpu-locsea
 
 # Build rule for target.
-randomsol: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 randomsol
-.PHONY : randomsol
+cpu-locsea: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cpu-locsea
+.PHONY : cpu-locsea
 
 # fast build rule for target.
-randomsol/fast:
-	$(MAKE) -f CMakeFiles/randomsol.dir/build.make CMakeFiles/randomsol.dir/build
-.PHONY : randomsol/fast
+cpu-locsea/fast:
+	$(MAKE) -f CMakeFiles/cpu-locsea.dir/build.make CMakeFiles/cpu-locsea.dir/build
+.PHONY : cpu-locsea/fast
 
-main.o: main.cu.o
+#=============================================================================
+# Target rules for targets named gpu-rand
 
-.PHONY : main.o
+# Build rule for target.
+gpu-rand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gpu-rand
+.PHONY : gpu-rand
+
+# fast build rule for target.
+gpu-rand/fast:
+	$(MAKE) -f CMakeFiles/gpu-rand.dir/build.make CMakeFiles/gpu-rand.dir/build
+.PHONY : gpu-rand/fast
+
+tsp-cpu-locsea.o: tsp-cpu-locsea.cpp.o
+
+.PHONY : tsp-cpu-locsea.o
 
 # target to build an object file
-main.cu.o:
-	$(MAKE) -f CMakeFiles/randomsol.dir/build.make CMakeFiles/randomsol.dir/main.cu.o
-.PHONY : main.cu.o
+tsp-cpu-locsea.cpp.o:
+	$(MAKE) -f CMakeFiles/cpu-locsea.dir/build.make CMakeFiles/cpu-locsea.dir/tsp-cpu-locsea.cpp.o
+.PHONY : tsp-cpu-locsea.cpp.o
 
-main.i: main.cu.i
+tsp-cpu-locsea.i: tsp-cpu-locsea.cpp.i
 
-.PHONY : main.i
+.PHONY : tsp-cpu-locsea.i
 
 # target to preprocess a source file
-main.cu.i:
-	$(MAKE) -f CMakeFiles/randomsol.dir/build.make CMakeFiles/randomsol.dir/main.cu.i
-.PHONY : main.cu.i
+tsp-cpu-locsea.cpp.i:
+	$(MAKE) -f CMakeFiles/cpu-locsea.dir/build.make CMakeFiles/cpu-locsea.dir/tsp-cpu-locsea.cpp.i
+.PHONY : tsp-cpu-locsea.cpp.i
 
-main.s: main.cu.s
+tsp-cpu-locsea.s: tsp-cpu-locsea.cpp.s
 
-.PHONY : main.s
+.PHONY : tsp-cpu-locsea.s
 
 # target to generate assembly for a file
-main.cu.s:
-	$(MAKE) -f CMakeFiles/randomsol.dir/build.make CMakeFiles/randomsol.dir/main.cu.s
-.PHONY : main.cu.s
+tsp-cpu-locsea.cpp.s:
+	$(MAKE) -f CMakeFiles/cpu-locsea.dir/build.make CMakeFiles/cpu-locsea.dir/tsp-cpu-locsea.cpp.s
+.PHONY : tsp-cpu-locsea.cpp.s
+
+tsp-gpu-rand.o: tsp-gpu-rand.cu.o
+
+.PHONY : tsp-gpu-rand.o
+
+# target to build an object file
+tsp-gpu-rand.cu.o:
+	$(MAKE) -f CMakeFiles/gpu-rand.dir/build.make CMakeFiles/gpu-rand.dir/tsp-gpu-rand.cu.o
+.PHONY : tsp-gpu-rand.cu.o
+
+tsp-gpu-rand.i: tsp-gpu-rand.cu.i
+
+.PHONY : tsp-gpu-rand.i
+
+# target to preprocess a source file
+tsp-gpu-rand.cu.i:
+	$(MAKE) -f CMakeFiles/gpu-rand.dir/build.make CMakeFiles/gpu-rand.dir/tsp-gpu-rand.cu.i
+.PHONY : tsp-gpu-rand.cu.i
+
+tsp-gpu-rand.s: tsp-gpu-rand.cu.s
+
+.PHONY : tsp-gpu-rand.s
+
+# target to generate assembly for a file
+tsp-gpu-rand.cu.s:
+	$(MAKE) -f CMakeFiles/gpu-rand.dir/build.make CMakeFiles/gpu-rand.dir/tsp-gpu-rand.cu.s
+.PHONY : tsp-gpu-rand.cu.s
 
 # Help Target
 help:
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... randomsol"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... cpu-locsea"
+	@echo "... gpu-rand"
+	@echo "... tsp-cpu-locsea.o"
+	@echo "... tsp-cpu-locsea.i"
+	@echo "... tsp-cpu-locsea.s"
+	@echo "... tsp-gpu-rand.o"
+	@echo "... tsp-gpu-rand.i"
+	@echo "... tsp-gpu-rand.s"
 .PHONY : help
 
 

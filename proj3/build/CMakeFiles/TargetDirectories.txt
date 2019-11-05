@@ -1,3 +1,4 @@
 /home/ec2-user/chen/gpu_ex/proj3/build/CMakeFiles/rebuild_cache.dir
 /home/ec2-user/chen/gpu_ex/proj3/build/CMakeFiles/edit_cache.dir
-/home/ec2-user/chen/gpu_ex/proj3/build/CMakeFiles/randomsol.dir
+/home/ec2-user/chen/gpu_ex/proj3/build/CMakeFiles/cpu-locsea.dir
+/home/ec2-user/chen/gpu_ex/proj3/build/CMakeFiles/gpu-rand.dir
