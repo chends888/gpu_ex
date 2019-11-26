@@ -5,8 +5,6 @@
 #include <chrono>
 // For output decimal numbers
 #include <iomanip>
-// Setting print decimal precision
-std::cout << std::fixed << std::setprecision(5);
 // For writing into file
 // #include <fstream>
 // #include <string>
@@ -155,6 +153,8 @@ int main(int argc, char *argv[]) {
         auto finish = std::chrono::high_resolution_clock::now();
         auto time_span = (std::chrono::duration_cast<std::chrono::duration<double>>(finish-start)).count();
 
+        // Setting print decimal precision
+        std::cout << std::fixed << std::setprecision(5);
         std::cout << path_dist(best_sol) << " 0" << std::endl;
         for (int i=0; i<best_sol.size(); i++) {
             std::cout << int(best_sol[i][2]);
