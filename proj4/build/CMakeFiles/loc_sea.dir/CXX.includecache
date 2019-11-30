@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chends/Documents/GitHub/gpu_ex/proj4/loc_sea.cpp
+iostream
+-
+math.h
+-
+vector
+-
+omp.h
+-
+chrono
+-
+iomanip
+-
+fstream
+-
+string
+-
+algorithm
+-
+random
+-
+boost/mpi.hpp
+-
+boost/serialization/vector.hpp
+-
+

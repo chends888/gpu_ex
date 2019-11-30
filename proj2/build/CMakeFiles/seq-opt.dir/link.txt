@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/seq-opt.dir/tsp-seq.cpp.o  -o seq-opt 

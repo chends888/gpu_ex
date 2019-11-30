@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/par1opt.dir/tsp-par1Opt.cpp.o  -o par1opt /usr/lib/gcc/x86_64-linux-gnu/8/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so 

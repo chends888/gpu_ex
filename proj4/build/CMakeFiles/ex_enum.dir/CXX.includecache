@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chends/Documents/GitHub/gpu_ex/proj4/exaust_enum.cpp
+iostream
+-
+math.h
+-
+vector
+-
+iomanip
+-
+chrono
+-
+fstream
+-
+string
+-
+boost/mpi.hpp
+-
+boost/serialization/vector.hpp
+-
+

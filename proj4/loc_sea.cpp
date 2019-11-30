@@ -3,14 +3,18 @@
 #include <vector>
 #include <omp.h>
 #include <chrono>
+
 // For output decimal numbers
 #include <iomanip>
+
 // For writing into file
-// #include <fstream>
-// #include <string>
+#include <fstream>
+#include <string>
+
 // Randomizing vectors
 #include <algorithm>
 #include <random>
+
 // Boost mpi
 #include <boost/mpi.hpp>
 #include <boost/serialization/vector.hpp>
@@ -48,8 +52,6 @@ bool check_intersec(std::vector<double> p1, std::vector<double> p2, std::vector<
 
 void local_search(std::vector<std::vector<double>> points, double &best_cost, std::vector<std::vector<double>> &best_sol) {
     bool flag = true;
-    // auto curr_cost = path_dist(points);
-    // std::cout << curr_cost << std::endl;
     while (flag) {
         for (int i=0; i<points.size()-1; i++) {
             for (int j=i+1; j<points.size(); j++) {
@@ -79,14 +81,10 @@ void local_search(std::vector<std::vector<double>> points, double &best_cost, st
         }
     }
     auto curr_cost = path_dist(points);
-    // std::cout << curr_cost << std::endl;
-    // if (curr_cost > best_cost) {}
-    // else {
         if (curr_cost < best_cost) {
             best_cost = curr_cost;
             best_sol = points;
         }
-    // }
     return;
 }
 
@@ -120,14 +118,11 @@ int main(int argc, char *argv[]) {
     auto start = std::chrono::high_resolution_clock::now();
     broadcast(world, points, 0);
 
-    for (int i=0; i<1; i++) {
+    for (int i=0; i<10000; i++) {
         auto tempvec = points;
         std::default_random_engine seed(world.rank());
         // std::default_random_engine seed(std::chrono::system_clock::now().time_since_epoch().count());
         std::shuffle(tempvec.begin() + 1, tempvec.end(), seed);
-        for (int j=0; j<tempvec.size(); j++) {
-            // std::cout << int(tempvec[j][2]) << " ";
-        }
         local_search(tempvec, best_cost, best_sol);
     }
 
@@ -164,7 +159,15 @@ int main(int argc, char *argv[]) {
         }
 
         std::cerr << std::endl << time_span << " s" << std::endl;
+        /* Writing results to file */
+        std::string test = "loc_sea10";
+        std::ofstream myfile;
+        myfile.open ("../results/" + test + ".json");
+        myfile << "{\n    ";
+        myfile << '"' << "mean" << '"' << ": " << (double)time_span << "\n}";
+        std::cerr << "Wrote results to: " << test << ".json" << std::endl;
     }
+
 
     return 0;
 }

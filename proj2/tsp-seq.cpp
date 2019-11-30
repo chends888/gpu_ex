@@ -39,7 +39,6 @@ double backtrack(std::vector<std::vector<double>> points, int idx, double curr_c
         if (!used[i]) {
             used[i] = true;
             curr_sol[idx] = i;
-            // std::cout << curr_sol[idx-1] << std::endl;
             double new_cost = curr_cost + dist(points[curr_sol[idx-1]], points[curr_sol[idx]]);
             best_cost = backtrack(points, idx+1, new_cost, best_cost, curr_sol, used, best_sol);
 
@@ -78,13 +77,9 @@ int main() {
         best_sol.push_back(-1);
     }
     curr_sol[0] = 0;
-    curr_sol[1] = 1;
     used[0] = true;
-    used[1] = true;
-    // used[2] = true;
-    // used[3] = true;
     auto start = std::chrono::high_resolution_clock::now();
-    backtrack(points, 2, 0, std::numeric_limits<double>::infinity(), curr_sol, used, best_sol);
+    backtrack(points, 1, 0, std::numeric_limits<double>::infinity(), curr_sol, used, best_sol);
     auto finish = std::chrono::high_resolution_clock::now();
     auto time_span = (std::chrono::duration_cast<std::chrono::duration<double>>(finish-start)).count();
 

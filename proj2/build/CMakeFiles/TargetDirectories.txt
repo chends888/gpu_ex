@@ -1,0 +1,12 @@
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/locsea.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/seq.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/bb.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/bb-opt.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/seq-opt.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/locsea-opt.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/locsea-bb.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/rebuild_cache.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/locsea-bb-opt.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/par1-opt.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/par1.dir
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/build/CMakeFiles/edit_cache.dir

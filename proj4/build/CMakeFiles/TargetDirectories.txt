@@ -1,0 +1,4 @@
+/home/chends/Documents/GitHub/gpu_ex/proj4/build/CMakeFiles/rebuild_cache.dir
+/home/chends/Documents/GitHub/gpu_ex/proj4/build/CMakeFiles/edit_cache.dir
+/home/chends/Documents/GitHub/gpu_ex/proj4/build/CMakeFiles/loc_sea.dir
+/home/chends/Documents/GitHub/gpu_ex/proj4/build/CMakeFiles/ex_enum.dir

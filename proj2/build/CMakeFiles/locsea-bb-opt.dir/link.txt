@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/locsea-bb-opt.dir/tsp-locsea-bb.cpp.o  -o locsea-bb-opt /usr/lib/gcc/x86_64-linux-gnu/8/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so 

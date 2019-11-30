@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chends/Desktop/Insper/2019_2/Supercomp/proj2/tsp-seq.cpp
+iostream
+-
+math.h
+-
+vector
+-
+limits
+-
+iomanip
+-
+chrono
+-
+fstream
+-
+string
+-
+
